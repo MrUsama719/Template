@@ -1,0 +1,45 @@
+﻿@model WebApplication14.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+
+            @using (Html.BeginForm("Index","Login",FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                       <th><h1 class="text-primary">Login</h1></th>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.User_Name)</td>
+                        <td>
+                            @Html.TextBoxFor(model => model.User_Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.User_Name,"", new { @class = "text-danger" })
+                    </td>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Password)</td>
+                        <td>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password,"",new { @class = "text-danger"})
+                    </td>
+                    </tr>
+
+                   
+                    <tr>
+                        <td style="padding-top:20px;">
+                            <input type="submit" value="Login" name="Login" class="btn btn-primary" />
+                        </td>
+
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
